@@ -6,7 +6,7 @@ RUN easy_install pip
 RUN git clone https://github.com/Yelp/elastalert.git
 RUN cd /elastalert/ && pip install -r requirements.txt
 RUN pip install python-dateutil==2.6.0
-RUN python setup.py install 
+RUN cd /elastalert/ && python setup.py install 
 RUN apt -y remove git
 RUN apt -y autoremove
 RUN apt -y clean
