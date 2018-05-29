@@ -4,6 +4,9 @@ FROM ubuntu:16.04
 ENV ELASTICSEARCH_HOST elasticsearch
 # Port Elasticsearch runs on
 ENV ELASTICSEARCH_PORT 9200
+# Number of replicas
+ENV ELASTALERT_INDEX_REPLICAS 1
+
 RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install build-essential python-setuptools python2.7 python2.7-dev libssl-dev git tox curl
 RUN easy_install pip \
