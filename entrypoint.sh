@@ -6,5 +6,10 @@ if [[ $TEST == *"404"* ]]; then
 else
     echo "Elastalert index already exists in Elasticsearch."
 fi
+curl -XPUT 'localhost:9200/elastalert_status/_settings' -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
+curl -XPUT 'localhost:9200/elastalert_status_error/_settings' -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
+curl -XPUT 'localhost:9200/elastalert_status_past/_settings' -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
+curl -XPUT 'localhost:9200/elastalert_status_silence/_settings' -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
+curl -XPUT 'localhost:9200/elastalert_status_status/_settings' -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
 
 elastalert --config /etc/elastalert/config.yaml
