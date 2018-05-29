@@ -19,4 +19,4 @@ RUN chmod +x /opt/entrypoint.sh
 USER elastalert
 STOPSIGNAL SIGTERM
 
-CMD /opt/entrypoint.sh
+CMD /bin/bash /opt/entrypoint.sh
