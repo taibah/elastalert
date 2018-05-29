@@ -12,4 +12,4 @@ curl -s -XPUT "$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/elastalert_status_past/_s
 curl -s -XPUT "$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/elastalert_status_silence/_settings" -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
 curl -s -XPUT "$ELASTICSEARCH_HOST:$ELASTICSEARCH_PORT/elastalert_status_status/_settings" -d "{ \"index.number_of_replicas\": ${ELASTALERT_INDEX_REPLICAS} }" -H 'Content-Type: application/json'
 
-elastalert --config /etc/elastalert/config.yaml
+elastalert --config /etc/elastalert/config.yaml --verbose
